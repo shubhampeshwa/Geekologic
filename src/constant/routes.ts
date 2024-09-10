@@ -1,4 +1,5 @@
 export const screens = {
     home: 'Home',
-    details: "Details"
+    recording: 'recording',
+    employee: 'employee'
 }
