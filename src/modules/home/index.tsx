@@ -13,7 +13,7 @@ const Home = ({ navigation }: any) => {
 
     return (
         <MainLayout headerTitle={'My Recorder'} leftIcon={images.menuIc}>
-            <View style={{ flex: 1, backgroundColor: 'lightpink' }}>
+            <View style={{ flex: 1 }}>
                 <Tab.Navigator>
                     <Tab.Screen name={screens.recording} component={Recording} />
                     <Tab.Screen name={screens.employee} component={Employee} />

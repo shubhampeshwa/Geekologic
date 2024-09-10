@@ -1,9 +1,9 @@
 import { Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
 import { styles } from './style';
-import { images } from '../../constant';
+import { colors, images, screens } from '../../constant';
 
 const numColumns = 2;
-const Recording = () => {
+const Recording = ({ navigation }: any) => {
   const data = [
     { id: '1', title: 'Recording 1', color: '#FFF3FC', borderColor: '#FEB4EB' },
     { id: '2', title: 'Recording 2', color: '#E8E8FD', borderColor: '#B494FD' },
@@ -28,6 +28,21 @@ const Recording = () => {
       </View>
     </View>
   );
+
+  const floatingButtonView = () => {
+    return <TouchableOpacity style={{
+      bottom: 32,
+      right: 24,
+      borderRadius: 16,
+      paddingVertical: 20,
+      position: 'absolute',
+      paddingHorizontal: 22,
+      backgroundColor: colors.appColor
+    }} activeOpacity={0.6} onPress={() => navigation.navigate(screens.addRecording)}>
+      <Image source={images.micIc} />
+    </TouchableOpacity>
+  }
+
   return (
     <View style={styles.container}>
       <FlatList
@@ -37,6 +52,7 @@ const Recording = () => {
         numColumns={numColumns}
         contentContainerStyle={styles.container}
       />
+      {floatingButtonView()}
     </View>
   );
 };
