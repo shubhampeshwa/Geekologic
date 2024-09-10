@@ -17,8 +17,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import redux from './src/redux';
 import { PersistGate } from 'redux-persist/integration/react'
-import { Colors } from './src/constant';
 import { configAxiosStructure } from './src/provider/api-config';
+import { colors } from './src/constant';
 
 const { store, persistor } = redux
 
@@ -32,14 +32,23 @@ function App(): React.JSX.Element {
     <Provider store={store} >
       <PersistGate loading={null} persistor={persistor}>
         <SafeAreaProvider>
-          <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
-          <View style={{ flex: 1 }}>
-            <InitialNavigation />
-          </View>
+          <SafeAreaView style={styles.safeArea}>
+            <StatusBar backgroundColor={colors.white} barStyle="dark-content" />
+            <View style={{ flex: 1 }}>
+              <InitialNavigation />
+            </View>
+          </SafeAreaView>
         </SafeAreaProvider>
       </PersistGate>
     </Provider>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: colors.white,
+  },
+});
 
 export default App;
