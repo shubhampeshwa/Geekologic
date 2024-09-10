@@ -1,5 +1,5 @@
-export const BASE_URL = 'https://rickandmortyapi.com/api/'
+export const BASE_URL = 'https://dummy.restapiexample.com/api/v1/'
 export const EndPoints = {
-    getCharaters: 'character',
+    getEmployees: 'employees',
 
 };

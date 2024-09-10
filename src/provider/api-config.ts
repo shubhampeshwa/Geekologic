@@ -71,7 +71,7 @@ class API {
             }
         } catch (err: unknown) {
             const resError = err as AxiosError<ResponseExtend>;
-            // console.log('reserror--', JSON.stringify(resError));
+            console.log('reserror--', JSON.stringify(resError?.response));
             if (showError) {
                 const messageInfo: MessageOptions = {
                     message: 'Unknown Error',

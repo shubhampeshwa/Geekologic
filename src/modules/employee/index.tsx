@@ -1,8 +1,28 @@
 import { Text, View, FlatList, Image } from 'react-native';
 import { styles } from './style';
 import { colors, images } from '../../constant';
+import { useEffect } from 'react';
+import { getEmployee } from '../../provider/api-services';
 
 const Employee = () => {
+  useEffect(() => {
+    fetchEmployeeData();
+  }, []);
+
+  const fetchEmployeeData = () => {
+    try {
+      getEmployee()
+        .then((res: any) => {
+          console.log('res=--', JSON.stringify(res));
+        })
+        .catch((e: any) => {
+          console.log('err=--', JSON.stringify(e));
+        });
+    } catch (e: any) {
+      console.log('e-', JSON.stringify(e));
+    }
+  };
+
   const arr = [
     { id: 1, name: 'Shubham', salary: 233300, age: 14 },
     { id: 2, name: 'Shubham', salary: 233300, age: 14 },
