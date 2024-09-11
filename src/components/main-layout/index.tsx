@@ -5,7 +5,7 @@ import { styles } from './style';
 import { colors, images } from '../../constant';
 
 const MainLayout = (props: MainLayoutI) => {
-  const { headerTitle, leftIcon, onPress, children } = props;
+  const { headerTitle, leftIcon, onPress, children  } = props;
   return (
     <View style={styles.container}>
       <View
