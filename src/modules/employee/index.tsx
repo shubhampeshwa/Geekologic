@@ -1,10 +1,11 @@
 import { Text, View, FlatList, Image } from 'react-native';
 import { styles } from './style';
 import { colors, images } from '../../constant';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getEmployee } from '../../provider/api-services';
 
 const Employee = () => {
+  const [empData,setData] = useState([]) 
   useEffect(() => {
     fetchEmployeeData();
   }, []);
@@ -14,6 +15,7 @@ const Employee = () => {
       getEmployee()
         .then((res: any) => {
           console.log('res=--', JSON.stringify(res));
+          setData(res.data)
         })
         .catch((e: any) => {
           console.log('err=--', JSON.stringify(e));
@@ -23,13 +25,7 @@ const Employee = () => {
     }
   };
 
-  const arr = [
-    { id: 1, name: 'Shubham', salary: 233300, age: 14 },
-    { id: 2, name: 'Shubham', salary: 233300, age: 14 },
-    { id: 3, name: 'Shubham', salary: 233300, age: 14 },
-    { id: 4, name: 'Shubham', salary: 233300, age: 14 },
-    { id: 5, name: 'Shubham', salary: 233300, age: 14 },
-  ];
+  
 
   const renderItem = ({ item }: any) => (
     <View style={styles.cardStyle}>
@@ -54,17 +50,17 @@ const Employee = () => {
       </View>
       <View style={styles.rowStyle}>
         <Text style={styles.labelTxt}>{'Employee Name'}</Text>
-        <Text style={styles.valueTxt}>{item.name}</Text>
+        <Text style={styles.valueTxt}>{item.employee_name}</Text>
       </View>
       <View style={styles.sepratorStyle}></View>
       <View style={styles.rowStyle}>
         <Text style={styles.labelTxt}>{'Employee Salary'}</Text>
-        <Text style={styles.valueTxt}>{item.salary}</Text>
+        <Text style={styles.valueTxt}>{item.employee_salary}</Text>
       </View>
       <View style={styles.sepratorStyle}></View>
       <View style={styles.rowStyle}>
         <Text style={styles.labelTxt}>{'Employee Age'}</Text>
-        <Text style={styles.valueTxt}>{item.age}</Text>
+        <Text style={styles.valueTxt}>{item.employee_age}</Text>
       </View>
     </View>
   );
@@ -79,9 +75,9 @@ const Employee = () => {
           </Text>
         </View>
         <FlatList
-          data={arr}
+          data={empData}
           renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
+          // keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
         />
       </View>

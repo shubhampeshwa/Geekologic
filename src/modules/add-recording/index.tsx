@@ -8,7 +8,9 @@ const AddRecording = ({ navigation }: any) => {
       headerTitle={'Recording'}
       leftIcon={images.leftArrowIc}
       onPress={() => navigation.goBack()}>
-      <View style={{ flex: 1 }}></View>
+      <View style={{ flex: 1 }}>
+        
+      </View>
     </MainLayout>
   );
 };

@@ -41,4 +41,13 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontSize: 16,
+    color: 'gray',
+  },
 });
